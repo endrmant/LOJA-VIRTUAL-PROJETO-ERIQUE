@@ -5,49 +5,48 @@ body{
     min-height: 50vh;
 }
 
-.blocoh {
+header {
     background-color: #FFD700;
     width: 100%;
     height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.blocoh .logo-anim {
+.logo{
     height: 6vh;
     width: 20vw;
-    top: 15px;
     object-fit: cover;
     object-position: left;
-    position: fixed;
+    flex-shrink: 0;
 }
 
 .navi {
     display: flex;
-    justify-content: center;
-    
+    flex-shrink: 0;
 }
 
-.navi input {
-    width: 16vw;
-    height: 4vh;
-    display: flex;
-    margin-top: 1vh;
-    position: fixed;
-    border-radius: 10px;
-    margin-right: 40px;
-    border: transparent;
-    transition: 1s;
+#pesquisa {
+    flex: 1;
     text-align: center;
+    border: transparent;
+    border-radius: 5px;
+    max-width: 200px;
 }
 
-.navi input:hover {
-    width: 20vw;
+#pesquisa:focus {
+    outline: none;
 }
 
 .navi a {
     text-decoration: none;
     margin-top: 6vh;
     color: #1A1A1B;
-    width: 10vw;
+    width: 200px;
     margin-left: 20px;
     font-family: "Archivo Black", sans-serif;
     font-style: normal;
@@ -56,5 +55,5 @@ body{
 }
 
 .navi a:hover {
-    font-size: 20px;
+    text-decoration: underline;
 }
