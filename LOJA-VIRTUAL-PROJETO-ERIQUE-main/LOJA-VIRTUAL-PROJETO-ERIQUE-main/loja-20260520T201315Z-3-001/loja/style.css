@@ -379,8 +379,12 @@ header{
     height: 100%;
 
     object-fit: cover;
-
+    
     position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
 
     opacity: 0;
 
