@@ -111,3 +111,13 @@ form a:hover{
     height: 10vh;
     object-fit: cover;
 }
+
+.getout {
+    font-size: 20px;
+    display: flex;
+    background: #FFD700;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
