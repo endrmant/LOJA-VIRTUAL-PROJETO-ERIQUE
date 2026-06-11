@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: gray;
+}
+
+.blocoform {
+    display: flex;
+    justify-content: center;
+    background: black;
+}
