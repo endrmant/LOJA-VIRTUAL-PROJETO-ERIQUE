@@ -113,11 +113,14 @@ form a:hover{
 }
 
 .getout {
-    font-size: 20px;
-    display: flex;
-    background: #FFD700;
-    border: 1px solid black;
-    border-radius: 5px;
+   font-size: 10px;
+   display: flex;
+   justify-content: center;
+}
+
+.getout:focus{
+    text-decoration: none;
+    
 }
 
 
