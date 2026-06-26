@@ -26,7 +26,7 @@ if (!empty($_SESSION['carrinho'])) {
 
 $pagamentoConfirmado = false;
 
-// Sem gateway de pagamento real - aqui é só uma simulação de confirmação
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar']) && !empty($itens)) {
     unset($_SESSION['carrinho']);
     $pagamentoConfirmado = true;
@@ -72,9 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar']) && !empt
 
             <div class="metodo">
                 <h5>Cartão de crédito</h5>
-                <img src="../images/credito.jpg" alt="card">
+                <button><img src="../images/credito.jpg" alt="card"></button>
             </div>
 
+            <div class="metodo">
+                <h5>Pix</h5>
+                <button><img src="../images/pix.jpg" alt="pix"></button>
+            </div>
+                    
             <form action="pagamento.php" method="POST">
                 <button type="submit" name="confirmar" value="1" class="confirmar">Confirmar Pagamento</button>
             </form>

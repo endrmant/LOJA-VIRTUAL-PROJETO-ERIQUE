@@ -77,6 +77,11 @@ body {
     border-radius: 8px;
 }
 
+.metodo button :active {
+    transform: scale(0.98);
+    border: 1px solid #FFD700;
+}
+
 .confirmar {
     width: 100%;
     padding: 14px;

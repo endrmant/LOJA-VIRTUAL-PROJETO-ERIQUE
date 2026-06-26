@@ -3,10 +3,10 @@ include '../principal/connect.php';
 session_start();
 
 if (!isset($_SESSION['carrinho'])) {
-    $_SESSION['carrinho'] = []; // formato: [produto_id => quantidade]
+    $_SESSION['carrinho'] = []; 
 }
 
-// Processa adicionar / remover / alterar quantidade
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $produtoId = (int) ($_POST['produto_id'] ?? 0);
     $acao      = $_POST['acao'] ?? '';
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // "Adicionar" feito a partir da vitrine volta para a vitrine; o resto fica no carrinho
+    
     if ($origem === 'index' && $acao === 'adicionar') {
         header("Location: ../principal/index.php");
     } else {
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-// Busca os dados atuais dos produtos que estão no carrinho
+
 $itens = [];
 $total = 0;
 

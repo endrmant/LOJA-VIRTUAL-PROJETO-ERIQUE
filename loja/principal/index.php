@@ -9,7 +9,12 @@ if (!empty($_SESSION['carrinho'])) {
     $totalCarrinho = array_sum($_SESSION['carrinho']);
 }
 
-$resultadoProdutos = $conn->query("SELECT * FROM produtos ORDER BY ID DESC");
+$sql = "SELECT produtos.*, usuarios.USUARIO AS nome_cliente 
+        FROM produtos 
+        INNER JOIN usuarios ON produtos.CLIENTE_ID = usuarios.ID 
+        ORDER BY produtos.ID DESC";
+
+$resultadoProdutos = $conn->query($sql);
 $produtos = $resultadoProdutos->fetch_all(MYSQLI_ASSOC);
 ?>
 
@@ -28,7 +33,25 @@ $produtos = $resultadoProdutos->fetch_all(MYSQLI_ASSOC);
 <body>
 <header>
     <img class="logo" src="../images/ChatGPT Image 25 de abr. de 2026, 16_43_03.png" alt='logo'>
-    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquise Produtos">
+    <form action="" method="GET" class="pesquisa-form" autocomplete="off">
+        <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquise Produtos">
+        <button type="submit">Pesquisar</button>
+    </form>
+    <?php
+     $pesquisa = isset($_GET['pesquisa']);
+     if(!empty($pesquisa)) {
+        $pesquisa = $_GET['pesquisa'];
+        $sql = "SELECT produtos.*, usuarios.USUARIO AS nome_cliente 
+                FROM produtos 
+                INNER JOIN usuarios ON produtos.CLIENTE_ID = usuarios.ID 
+                WHERE produtos.NOME LIKE '%$pesquisa%' OR produtos.DESCRICAO LIKE '%$pesquisa%'
+                ORDER BY produtos.ID DESC";
+
+        $resultadoProdutos = $conn->query($sql);
+        $produtos = $resultadoProdutos->fetch_all(MYSQLI_ASSOC);
+
+    }   
+    ?>
 <div class="navi">
 <nav>
     <ul>
@@ -86,6 +109,7 @@ $produtos = $resultadoProdutos->fetch_all(MYSQLI_ASSOC);
                 <h2><?php echo $produto['NOME']; ?></h2>
                 <p class="descricao"><?php echo $produto['DESCRICAO']; ?></p>
                 <p class="preco">R$ <?php echo number_format($produto['PRECO'], 2, ',', '.'); ?></p>
+                <p class="autor" style="font-style: italic; font-weight: bold;">Vendido por: <?php echo $produto['nome_cliente']; ?></p>
 
                 <form action="carrinho.php" method="POST" class="botoes">
                     <input type="hidden" name="produto_id" value="<?php echo $produto['ID']; ?>">
