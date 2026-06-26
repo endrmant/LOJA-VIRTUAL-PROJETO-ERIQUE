@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/06/2026 às 22:32
+-- Tempo de geração: 26/06/2026 às 16:11
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`ID`, `NOME`, `TIPO`, `PRECO`, `DESCRICAO`, `CLIENTE_ID`) VALUES
-(9, 'bolsa', 'acessorio', 12.00, 'uma bolsa chique para todas as suas viagens', 1);
+(10, 'banco retrátil', 'móveis', 20.00, 'Cadeirinha que dobra', 3),
+(20, 'mel', 'outros', 39.00, 'Mel Flores Silvestre 500 gramas', 11);
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`ID`, `EMAIL`, `DATANASCI`, `SENHA`, `USUARIO`) VALUES
 (1, 'n@gmail.com', '2022-02-12', '81dc9bdb52d04dc20036dbd8313ed055', 'niemowie'),
-(2, 'jubs@gmail.com', '2022-02-12', '2b24d495052a8ce66358eb576b8912c8', 'jubileu');
+(2, 'jubs@gmail.com', '2022-02-12', '2b24d495052a8ce66358eb576b8912c8', 'jubileu'),
+(3, 'fulano.cicrano@gmail.com', '1973-08-20', 'e09c80c42fda55f9d992e59ca6b3307d', 'fulano'),
+(6, 'ililil@hotmail.com', '2000-01-14', '25d55ad283aa400af464c76d713c07ad', 'elneua'),
+(7, 'edugamesremember1@gmail.com', '2013-08-01', '50e566834e250332e5e5155f59e34f10', 'Fuzz'),
+(10, 'eunaosei@gmail.com', '2001-09-11', '27ba0428649dc180e98846eee42ed4f0', 'Sonic123'),
+(11, 'nicolaspedroso058@gmail.com', '2008-09-13', 'f7346abc6242650d36ea77bd4b03c9a1', 'nicolas.wy01');
 
 --
 -- Índices para tabelas despejadas
@@ -91,13 +97,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas
